@@ -18,8 +18,4 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void InitDolby()
-    {
-
-    }
 }
