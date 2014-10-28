@@ -4,14 +4,14 @@ using System.Collections;
 
 public class EnemyAgent : MonoBehaviour
 {
-    public enum AIState { PAUSE = 0, CHARGE, MOVE, PATH, RANDOM };
+    private enum AIState { PAUSE = 0, CHARGE, PATH, MOVE, RANDOM };
 
     // Vars
-    GameObject playerObject;
-    public Vector3 targetPosition;
-    public float moveSpeed;
-    public float dangerZoneProximity;
-    public AIState currState;
+    public GameObject playerObject;
+    private Vector3 targetPosition;
+    private float moveSpeed;
+    private float dangerZoneProximity;
+    private AIState currState;
     private float pauseTimer;
 
     // Use this for initialization
@@ -128,6 +128,11 @@ public class EnemyAgent : MonoBehaviour
 
         //determine step rate
         float stepRate = 1.0f;
+
+        // TODO: Determine step rates for regular moving versus charging
+        //       Need to also figure out formula for generating step rate to
+        //       PACE & STRIDE to determine frequency of playback and which
+        //       sound effect to play
 
     }
 }
