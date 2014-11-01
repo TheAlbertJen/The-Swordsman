@@ -108,6 +108,12 @@ public class EnemyAgent : MonoBehaviour
             Mathf.Pow(-1, Random.Range(1,2))); // random on either side of v
 
         targetPosition = p;
+
+        // TODO:
+        // If target position is too close to player, change logic
+        // If target position is where current sword location is, change target
+
+
     }
 
     private void SetState(AIState state)

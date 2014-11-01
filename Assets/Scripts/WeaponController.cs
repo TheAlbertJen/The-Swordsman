@@ -1,13 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using UnityScript.Lang;
+
 public class WeaponController : MonoBehaviour
 {
+    private const float SECONDS_TO_POLL_FOR = 5.0f;
     
+    private Gyroscope gyro;
+    private Vector3 upVector;
+
+
     // Use this for initialization
     void Start()
     {
-        //set pivot point to hilt, based on phone orientation
+        // init gyro
+        gyro = new Gyroscope();
+
+        // set pivot point to hilt, based on phone orientation
     }
 
     // Update is called once per frame
@@ -19,16 +29,44 @@ public class WeaponController : MonoBehaviour
     // Calibration function
     // returns true if the calibration was a success, false if need to
     // calibrate again.
-    bool Calibrate()
+    bool CalibrateExtend()
+    {
+        // poll the gyroscope for 5 seconds
+        for (float secondsLeft = SECONDS_TO_POLL_FOR; secondsLeft > 0.0f;
+            secondsLeft -= Time.deltaTime)
+        {
+
+        }
+        // determine up vector (invert average of all gravity vectors)
+
+
+        // if there is too much jitter, return false (need to calibrate again) 
+
+
+        return false;
+    }
+
+    bool Calibrate90Degree()
     {
         return false;
     }
 
-    // get and set orientation based on accelerometer
+    // get and set orientation based gyro
     void Pivot()
     {
-        
+        // dump data from gyro straight to weapon (rotation, orientation)
+
+        // set transform to hilt
+
+        // set acceleration
     }
 
-    // 
+    // handle sword hitting enemies
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.name == "")
+        {
+            // destroy enemy? play sound? logic needed.
+        }
+    }
 }
