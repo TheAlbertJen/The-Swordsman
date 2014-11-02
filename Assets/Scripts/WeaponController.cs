@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-using UnityScript.Lang;
-
 public class WeaponController : MonoBehaviour
 {
     private const float SECONDS_TO_POLL_FOR = 5.0f;
@@ -15,7 +13,7 @@ public class WeaponController : MonoBehaviour
     void Start()
     {
         // init gyro
-        gyro = new Gyroscope();
+        gyro = Input.gyro;
 
         // set pivot point to hilt, based on phone orientation
     }
