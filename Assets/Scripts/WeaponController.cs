@@ -16,6 +16,7 @@ public class WeaponController : MonoBehaviour
         gyro = Input.gyro;
 
         // set pivot point to hilt, based on phone orientation
+        
     }
 
     // Update is called once per frame
