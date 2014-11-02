@@ -15,8 +15,6 @@ public class WeaponController : MonoBehaviour
         // init gyro
         gyro = Input.gyro;
 
-        // set pivot point to hilt, based on phone orientation
-        
     }
 
     // Update is called once per frame
@@ -60,12 +58,5 @@ public class WeaponController : MonoBehaviour
         // set acceleration
     }
 
-    // handle sword hitting enemies
-    void OnCollisionEnter(Collision col)
-    {
-        if(col.gameObject.name == "")
-        {
-            // destroy enemy? play sound? logic needed.
-        }
-    }
+
 }

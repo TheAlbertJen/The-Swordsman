@@ -141,4 +141,11 @@ public class EnemyAgent : MonoBehaviour
         //       sound effect to play
 
     }
+
+    public void OnDeath()
+    {
+        // TODO: play sound
+        // Tell factory object needs to be destroyed
+        // kill object
+    }
 }
