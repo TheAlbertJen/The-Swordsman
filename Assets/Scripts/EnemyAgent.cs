@@ -8,6 +8,8 @@ public class EnemyAgent : MonoBehaviour
 
     // Vars
     public GameObject playerObject;
+    public GameObject weaponObject;
+    
     private Vector3 targetPosition;
     private float moveSpeed;
     private float dangerZoneProximity;
@@ -45,8 +47,14 @@ public class EnemyAgent : MonoBehaviour
 
         Vector3 toPlayer = playerObject.transform.position - this.transform.position;
 
-        if (toPlayer.magnitude < dangerZoneProximity)
+        // within charging range
+        if (toPlayer.magnitude > dangerZoneProximity
+            && toPlayer.magnitude < dangerZoneProximity * 2.0f)
+        {
+            // logic to determine if charging into sword?
+
             currState = AIState.CHARGE;
+        }
 
         switch (currState)
         {
@@ -79,7 +87,14 @@ public class EnemyAgent : MonoBehaviour
 
     private void Charge()
     {
-        //when charging, speed increases, head straight for player
+        // when charging, speed increases, head straight for player
+
+        moveSpeed = 20.0f;
+
+        // make sure not charging right into sword
+        // if charging into sword, pause? leap back? reroute?
+
+
     }
 
     // Use current position and target position to determine path without
@@ -107,12 +122,9 @@ public class EnemyAgent : MonoBehaviour
             ( (0.25f*d) * Vector3.Cross(vunit, new Vector3(0,1,0)) * // finding perpendicular vector
             Mathf.Pow(-1, Random.Range(1,2))); // random on either side of v
 
+        Vector3 targetPosToPlayer = playerPosition - targetPosition;
+
         targetPosition = p;
-
-        // TODO:
-        // If target position is too close to player, change logic
-        // If target position is where current sword location is, change target
-
 
     }
 
